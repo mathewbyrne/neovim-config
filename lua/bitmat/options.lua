@@ -16,3 +16,5 @@ vim.opt.colorcolumn = "80"
 
 vim.cmd.colorscheme("neohybrid")
 
+vim.o.shell = "pwsh.exe"
+
