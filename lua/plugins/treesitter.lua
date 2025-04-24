@@ -1,14 +1,14 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-treesitter/nvim-treesitter',
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ":TSUpdate",
+    build = ':TSUpdate',
     config = function ()
-        local configs = require("nvim-treesitter.configs")
+        local configs = require('nvim-treesitter.configs')
 
         configs.setup({
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+            ensure_installed = { 'c', 'cpp', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'html' },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
@@ -17,10 +17,10 @@ return {
                     enable = true,
                     set_jumps = true,
                     goto_next_start = {
-                        ["]]"] = "@function.outer",
+                        [']]'] = '@function.outer',
                     },
                     goto_previous_start = {
-                        ["[["] = "@function.outer",
+                        ['[['] = '@function.outer',
                     },
                 }
             }    

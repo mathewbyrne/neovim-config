@@ -6,10 +6,18 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<Nop>')
 
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
+-- remapping various movements to centre vertically afterwards
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
+vim.keymap.set('n', '``', '``zz', { remap = false, desc = 'Jump back and centre' })
+
+-- mappings for moving lines around
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down' })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move block down' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move block up' })
 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
@@ -38,5 +46,6 @@ vim.keymap.set('n', '<leader>gf', function()
     vim.cmd('edit ' .. vim.fn.fnameescape(file))
     if lineno then
         vim.cmd(lineno)
+        vim.cmd('normal! zz')
     end
 end, { desc = 'Open <cfile> in left window and jump to line (MSVC style)' })
