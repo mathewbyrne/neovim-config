@@ -19,3 +19,12 @@ vim.cmd.colorscheme("neohybrid")
 vim.opt.shell = "pwsh.exe"
 
 vim.opt.cursorline = true
+
+vim.api.nvim_create_autocmd('TermOpen', {
+    pattern = '*',
+    callback = function()
+        vim.cmd('startinsert')
+    end,
+})
+
+
