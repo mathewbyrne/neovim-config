@@ -19,6 +19,10 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move block down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move block up' })
 
+-- create lines without going into insert mode
+vim.keymap.set('n', '<leader>o', 'o<Esc>', { desc = 'Insert line below without entering insert mode' })
+vim.keymap.set('n', '<leader>O', 'O<Esc>', { desc = 'Insert line above without entering insert mode' })
+
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set('n', '<leader>nvc', ':BitmatNvimConfig<CR>', { desc = 'Edit Neovim config in new tab' })
