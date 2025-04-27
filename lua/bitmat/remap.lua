@@ -4,7 +4,7 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<Nop>')
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader><tab>', '<C-^>', { desc = 'Previous buffer' })
 
 -- remapping various movements to centre vertically afterwards
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
@@ -53,3 +53,6 @@ vim.keymap.set('n', '<leader>gf', function()
         vim.cmd('normal! zz')
     end
 end, { desc = 'Open <cfile> in left window and jump to line (MSVC style)' })
+
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+

@@ -12,11 +12,11 @@ vim.opt.smartindent = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 
-vim.cmd.colorscheme("neohybrid")
+vim.cmd.colorscheme('tokyonight')
 
-vim.opt.shell = "pwsh.exe"
+vim.opt.shell = 'pwsh.exe'
 
 vim.opt.cursorline = true
 

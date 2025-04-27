@@ -1,1 +1,6 @@
-return { 'rafi/neo-hybrid.vim', version = false, lazy = false }
+return {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+}
