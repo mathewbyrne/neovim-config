@@ -16,7 +16,14 @@ vim.opt.colorcolumn = '80'
 
 vim.cmd.colorscheme('tokyonight')
 
-vim.opt.shell = 'pwsh.exe'
+local os_name = vim.loop.os_uname().sysname
+if os_name == 'Darwin' then
+    vim.opt.shell = 'zsh'
+elseif os_name == 'Windows_NT' then
+    vim.opt.shell = 'pwsh.exe'
+else
+    vim.opt.shell = 'bash'
+end
 
 vim.opt.cursorline = true
 
