@@ -6,32 +6,34 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop= 4
-
 vim.opt.smartindent = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
+vim.opt.cursorline = true
 vim.opt.colorcolumn = '80'
 
 vim.cmd.colorscheme('tokyonight')
 
-local os_name = vim.loop.os_uname().sysname
-if os_name == 'Darwin' then
-    vim.opt.shell = 'zsh'
-elseif os_name == 'Windows_NT' then
+if vim.fn.has('unix') then
+    if vim.fn.has('macunix') then
+        vim.opt.shell = 'zsh'
+    else
+        vim.opt.shell = 'bash'
+    end
+elseif vim.fn.has('win32') or vim.fn.has('win64') then
     vim.opt.shell = 'pwsh.exe'
 else
     vim.opt.shell = 'bash'
 end
 
-vim.opt.cursorline = true
-
-vim.api.nvim_create_autocmd('TermOpen', {
+-- On entering a terminal window, enter insert mode.
+vim.api.nvim_create_autocmd('WinEnter', {
     pattern = '*',
     callback = function()
-        vim.cmd('startinsert')
+        if vim.bo.buftype == 'terminal' then
+            vim.cmd('startinsert')
+        end
     end,
 })
-
 
