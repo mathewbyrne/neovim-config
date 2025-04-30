@@ -15,14 +15,10 @@ vim.opt.colorcolumn = '80'
 
 vim.cmd.colorscheme('tokyonight')
 
-if vim.fn.has('unix') then
-    if vim.fn.has('macunix') then
-        vim.opt.shell = 'zsh'
-    else
-        vim.opt.shell = 'bash'
-    end
-elseif vim.fn.has('win32') or vim.fn.has('win64') then
+if vim.fn.has('win32') or vim.fn.has('win64') then
     vim.opt.shell = 'pwsh.exe'
+elseif vim.fn.has('macunix') then
+    vim.opt.shell = 'zsh'
 else
     vim.opt.shell = 'bash'
 end
