@@ -5,6 +5,8 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<Nop>')
 
 vim.keymap.set('n', '<leader><tab>', '<C-^>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save buffer' })
+vim.keymap.set('n', '<leader>W', '<cmd>wa<CR>', { desc = 'Save all buffers' })
 
 -- remapping various movements to centre vertically afterwards
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
