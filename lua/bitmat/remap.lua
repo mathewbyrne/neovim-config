@@ -58,3 +58,19 @@ end, { desc = 'Open <cfile> in left window and jump to line (MSVC style)' })
 
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
+local function build_and_show()
+    vim.cmd('silent make')
+    if #vim.fn.getqflist() > 0 then
+        vim.cmd('copen')
+    else
+        vim.cmd('cclose')
+        vim.notify('Build OK', vim.log.levels.INFO)
+    end
+end
+
+-- Quick fix setup
+vim.keymap.set('n', '<leader>m', build_and_show, { desc = 'Build (:make) and quickfix'})
+vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = 'Next quickfix item'})
+vim.keymap.set('n', '[q', vim.cmd.cprev, { desc = 'Prev quickfix item'})
+vim.keymap.set('n', '<leader>q', vim.cmd.copen, { desc = 'Open quickfix'})
+

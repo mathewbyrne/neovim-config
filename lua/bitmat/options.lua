@@ -17,10 +17,19 @@ vim.cmd.colorscheme('tokyonight')
 
 if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
     vim.opt.shell = 'pwsh.exe'
+    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy Bypass -Command'
+    vim.opt.shellxquote = ''
+    vim.opt.shellquote = ''
+    vim.opt.shellpipe = '2>&1 | Out-File -Encoding utf8 %s'
+    vim.opt.shellredir = '2>&1 | Out-File -Encoding utf8 %s'
+
+    vim.opt.makeprg = 'cmd /c build.bat'
 elseif vim.fn.has('macunix') == 1 then
     vim.opt.shell = 'zsh'
+    vim.opt.makeprg = 'make'
 else
     vim.opt.shell = 'bash'
+    vim.opt.makeprg = 'make'
 end
 
 -- On entering a terminal window, enter insert mode.
