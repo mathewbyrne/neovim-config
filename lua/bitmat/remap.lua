@@ -29,7 +29,8 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set('n', '<leader>nvc', ':BitmatNvimConfig<CR>', { desc = 'Edit Neovim config in new tab' })
 
-vim.keymap.set('n', '<Tab>', '<C-w>w', { desc = 'Switch window' })
+vim.keymap.set('n', '<Tab>', '<C-w>w', { desc = 'Next window' })
+vim.keymap.set('n', '<S-Tab>', '<C-w>W', { desc = 'Prev window' })
 
 vim.keymap.set('n', '<leader>tt', function ()
     vim.cmd('rightbelow vsplit')
@@ -74,3 +75,6 @@ vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = 'Next quickfix item'})
 vim.keymap.set('n', '[q', vim.cmd.cprev, { desc = 'Prev quickfix item'})
 vim.keymap.set('n', '<leader>q', vim.cmd.copen, { desc = 'Open quickfix'})
 
+-- Splits, focussing on right or bottom
+vim.keymap.set('n', '<leader>v', '<C-w>v<C-w>l')
+vim.keymap.set('n', '<leader>s', '<C-w>s<C-w>l')

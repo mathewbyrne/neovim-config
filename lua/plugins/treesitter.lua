@@ -13,16 +13,14 @@ return {
             highlight = { enable = true },
             indent = { enable = true },
             textobjects = {
-                move = {
+                select = {
                     enable = true,
-                    set_jumps = true,
-                    goto_next_start = {
-                        [']]'] = '@function.outer',
+                    lookahead = true,
+                    keymaps = {
+                        ['af'] = '@function.outer',
+                        ['if'] = '@function.inner',
                     },
-                    goto_previous_start = {
-                        ['[['] = '@function.outer',
-                    },
-                }
+                },
             }    
         })
 
