@@ -13,6 +13,9 @@ vim.opt.incsearch = true
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80'
 
+vim.opt.fileformat = 'unix'
+vim.opt.fileformats = { 'unix' }
+
 vim.cmd.colorscheme('tokyonight')
 
 if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
